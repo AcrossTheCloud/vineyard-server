@@ -1,27 +1,27 @@
 {
-  "name": "cognicity-rem-server",
-  "description": "Web & data server for CogniCity REM",
+  "name": "vineyard-server",
+  "description": "Web & data server for vineyeard data",
   "version": "2.0.0",
-  "author": "Tomas Holderness",
+  "author": "Tomas Holderness, Matthew Berryman",
   "preferGlobal": false,
   "private": true,
   "dependencies": {
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.15.2",
     "connect-ensure-login": "^0.1.1",
     "connect-pg-simple": "^3.1.0",
-    "cookie-parser": "^1.4.0",
-    "express": "^4.13.3",
-    "express-session": "^1.12.1",
-    "memory-cache": "^0.0.5",
-    "moment-timezone": "^0.5.0",
-    "morgan": "^1.6.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "memory-cache": "^0.1.6",
+    "moment-timezone": "^0.5.5",
+    "morgan": "^1.7.0",
     "node-pbkdf2": "^0.1.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "pg": "^3.0.0",
-    "topojson": "^1.6.19",
-    "winston": "^0.8.3",
-    "xmlbuilder": "^4.2.1"
+    "pg": "^6.0.3",
+    "topojson": "^1.6.26",
+    "winston": "^2.2.0",
+    "xmlbuilder": "^8.2.2"
   },
   "devDependencies": {
     "jsdoc": "^3.3.3",
@@ -31,7 +31,7 @@
     "istanbul": "^0.4.0"
   },
   "engines": {
-    "node": "^4.2.1"
+    "node": "^4.4.6"
   },
   "scripts": {
     "test": "npm run jshint && npm run mocha",
