@@ -1,0 +1,492 @@
+/**
+ * Styles used by the petajakarta.org website.
+ */
+
+/*
+ * Acknowledgements to Carlos Alvarez for original theme.
+ * URL: http://alvarez.is
+ *
+ * Project Name: FLATTY - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+ /*Support for  menu items and page scaling*/
+ @media (max-width: 991px) {
+     .navbar-header {
+         float: none;
+     }
+     .navbar-toggle {
+         display: block;
+         border-radius: 0 !important;
+     }
+     .navbar-collapse {
+         border-top: 1px solid transparent;
+         box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+     }
+     .navbar-collapse.collapse {
+         display: none!important;
+     }
+     .navbar-nav {
+         float: none!important;
+         margin: 7.5px -15px;
+     }
+     .navbar-nav>li {
+         float: none;
+     }
+     .navbar-nav>li>a {
+         padding-top: 10px;
+         padding-bottom: 10px;
+     }
+     .navbar-text {
+         float: none;
+         margin: 15px 0;
+     }
+     /* since 3.1.0 */
+     .navbar-collapse.collapse.in {
+         display: block!important;
+     }
+     .collapsing {
+         overflow: hidden!important;
+     }
+ }
+
+/*Scaling for header*/
+ @media screen and (min-width: 480px) {
+ 	#headerwrap p {
+ 		font-size:28px;
+ 	}
+ }
+
+ /* rescale on small screens*/
+ @media screen and (max-width: 480px), screen and (max-device-width:480px) {
+   .navbar-header img {
+     margin-left: -10px;
+     height:28px;
+     width: auto;
+   }
+
+   .navbar {
+     min-height:32px;
+   }
+
+   .main{
+      margin-top:33px !important;
+   }
+
+  .navbar-toggle {
+    padding:4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .jumbotron h1{
+    margin-top:10px;
+  }
+}
+
+ html,{
+   height: 100%;
+   /* The html and body elements cannot have any padding or margin for footer. */
+ }
+
+/*Body*/
+body {
+  height: 100%;
+  background-color: #FFF;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #333;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h3 {
+	color: #696a6a;
+	font-weight: 400;
+}
+
+h4 {
+	color: #000;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+/* Paragraph & Typographic */
+p {
+    font-size: 24px;
+    font-weight:300;
+}
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #00AAEE;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+/*Heading Row*/
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*Navbar*/
+.navbar-default {
+	background-color:rgba(100,100,100,0.9);
+	border-color: transparent;
+	padding-left: 15px;
+  min-height: auto !important;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+/*Color for collapsed nav menu button span elements on mobile devices*/
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #CCC;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+
+.brand {
+	font-size:28px;
+	color:white;
+	padding:0px;
+}
+
+.brand:hover, .brand:focus {
+	font-size:28px;
+	color:white;
+	padding:0px;
+}
+
+/* Helpers */
+.mt {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.form-control {
+	height: 42px;
+	font-size: 18px;
+	width: 280px;
+}
+
+/* bodytext */
+.bodytext {
+	border-left: #666 2px solid;
+	padding-left: 12px;
+}
+/*Padding for sharing instructions on home page*/
+#sharing-instructions {
+  margin-top: 30px;
+}
+
+/* HeaderWrap */
+#headerwrap {
+	/* background: url(../img/bg01.jpg) no-repeat center top; */
+	background-color: #00AAEE;
+	margin-top: -20px;
+  margin-bottom: 25px;
+	padding-top:30px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 200px;
+	width: 100%;
+
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap .jumbotron {
+  margin-bottom: 0;
+}
+
+/*Custom font/typography for home page and research*/
+#privacy h1 {
+	font-size:28pt;
+}
+
+#page-foot p {
+  font-size: 12px;
+}
+
+#toc p {
+  font-size: 16px;
+  color: #000;
+}
+
+#toc p:hover {
+  font-size: 16px;
+  color: #0AE;
+}
+
+#toc h3 {
+  font-size: 18px;
+  color: #000;
+}
+
+#toc h3:hover {
+  font-size: 18px;
+  color: #0AE;
+}
+
+#cover p {
+  font-size: 16px;
+  color: #000;
+}
+
+#cover h3 {
+  font-size: 18px;
+  color: #000;
+}
+
+/*Custom styling of elements for White Paper/Research Page*/
+.subsection{
+  font-size:18px;
+  font-style: italic;
+}
+
+.paper{
+  font-size: 18px;
+  text-align: justify;
+  color: #000;
+}
+
+.bib{
+  font-size:18px;
+}
+
+.panel-heading a:hover{
+  color: #0AE;
+}
+
+.panel-heading a {
+  color: #000;
+}
+
+.panel-heading a:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: right;
+}
+
+.panel-heading a.collapsed:after {
+    content: "\e080";
+}
+
+.anchor{display:block; position: relative; top:150px; padding-top:2px; visibility: hidden;}
+
+.thumbnail.with-caption {
+  display: inline-block;
+  background: #f5f5f5;
+}
+.thumbnail.with-caption p {
+  margin: 0;
+  padding-top: 0.5em;
+  font-size: 14px;
+}
+.thumbnail.with-caption small:before {
+  content: '\2014 \00A0';
+}
+.thumbnail.with-caption small {
+  width: 100%;
+  text-align: right;
+  display: inline-block;
+  color: #999;
+}
+
+/*Squares for White Paper*/
+.square {
+    float:left;
+    position: relative;
+    width: 48%;
+    padding-bottom: 49%; /* = width for a 1:1 aspect ratio */
+    margin:1%;
+    overflow:hidden;
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*10% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding: 0% 0%;
+}
+
+/*video - White Paper*/
+.flex-video {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.flex-video.widescreen { padding-bottom: 57.25%; }
+.flex-video.vimeo { padding-top: 0; }
+
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Video scaling for White Paper*/
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+  .flex-video { padding-top: 0; }
+}
+
+/*Scroll up button - White Paper */
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  width: 38px; /* Width of image */
+  height: 38px; /* Height of image */
+  background: url(../img/top.png) no-repeat;
+}
+
+
+/*Sticky footer styles*/
+/*Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /*Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /*Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/*Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/*Default page element styles*/
+.jumbotron {
+  padding-top: 0px;
+  background-color: #00AAEE;
+  color:#fff;
+  text-align: center;
+}
+
+.main {
+    margin-top:51px;
+    background-color:transparent;
+}
+
+.a {
+  text-decoration:none;
+}
+
+.container .text-muted {
+  margin-top: 20px;
+
+}
+
+.custom-masthead h2 {
+  font-size: 40px;
+}
+
+#count {
+  margin-bottom: 0px;
+}
+
+#report_text {
+  margin-bottom: 0px;
+}
+
+/* Report table */
+#modal-body {
+  overflow:scroll;
+}
+
+.navbar-right {
+  margin-right:0px;
+  font-size:18px;
+}
+
+/*Table formatting for logos*/
+#logos {
+  margin-top: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding:0;
+}
+
+/* Add some padding to compensate for the fixed navbar overlapping content */
+/*White Paper Title*/
+.top-navbar-padding {
+  padding-top: 70px;
+}
+
+/*Generic settings for in-page anchors*/
+/* Offset anchor links, to compensate for the sticky header */
+.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+}
+
+/*Remove rounded corners of leaflet legend and buttons*/
+.btn, .modal-content {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+   border-radius: 0 !important;
+}

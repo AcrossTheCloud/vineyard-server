@@ -1,0 +1,386 @@
+/**
+ * Styles used by the petajakarta.org map widget.
+ * E.g. map elements, leaflet panels, etc.
+ */
+
+.leaflet-control-attribution {
+  font-size:18px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/*add space for banner around zoom control*/
+.map.site .leaflet-control-zoom,
+.map.site .timestamp {
+  margin-top:55px !important;
+}
+
+/* move image for small screens*/
+@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+  .navbar-header img {
+    margin-left: -10px;
+  }
+  .map.site .timestamp,
+  .map.site .leaflet-control-zoom{
+     margin-top: 38px !important;
+  }
+}
+
+#map {
+  height:100%;
+  cursor: default;
+}
+
+.navbar-right {
+  font-size:18px;
+
+}
+
+.info {
+    padding: 6px 8px;
+    margin: 5px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    white-space: normal;
+}
+.info h4 {
+    margin: 0px;
+    color: #777;
+}
+
+.legend {
+     color: #555;
+     font-size: 9px;
+     line-height: normal;
+     font-family: Lato:100;
+     margin:0px;
+     padding:5px;
+}
+
+.sublegend {
+  margin:3px;
+  line-height: 18px;
+}
+
+.sublegend img {
+  margin:1px;
+}
+
+.legend hr {
+  margin-top:0px;
+  margin-bottom:0px;
+}
+.legend i.color {
+      width: 24px;
+      height: 18px;
+      float: left;
+      margin-right: 0;
+      opacity: 0.7;
+      margin-bottom:0;
+}
+.legend .number {
+      width: 24px;
+      height: 18px;
+      float: left;
+      text-align: center;
+      margin-right: 0;
+      opacity: 0.7;
+      line-height: 2;
+}
+.u {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+    color:#000;
+    background:#ff7800;
+    border-radius:50%;
+    border:2px solid #000;
+}
+
+
+.water {
+    width: 24px;
+    height: 12px;
+    float: left;
+    margin-right: 4px;
+    margin-top:1px;
+    opacity: 0.7;
+    color:#000;
+    background:blue;
+    border-radius:0%;
+    border:0px solid #000;
+}
+
+.c {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    margin-top:0px;
+    opacity: 0.7;
+    color:#000;
+    background:#1a42e2;
+    border-radius:50%;
+    border:2px solid #000;
+}
+
+
+.leaflet-control-info-button,
+.leaflet-control-location-button {
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  background: #fff;
+  border-radius: 0px;
+  width: 36px;
+  height: 36px;
+  display: block;
+  background-size: 36px 36px;
+  text-display: none;
+  box-sizing: border-box;
+
+  /* Hide the text. */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.leaflet-control-reports-button {
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  background: #fff;
+  border-radius: 0px;
+  width: 36px;
+  height: 36px;
+  display: block;
+  background-size: 36px 36px;
+  /*text-display: none;*/
+  box-sizing: border-box;
+
+  /* Hide the text. */
+  /*text-indent: 150%;*/
+  /*white-space: nowrap;
+  overflow: hidden;*/
+}
+
+.leaflet-control-reports-button {
+  background-image: url(../img/reports.png);
+}
+
+.leaflet-control-reports-button .badge {
+  margin-left:80%;
+  vertical-align:middle;
+}
+
+.leaflet-retina .leaflet-control-reports-button {
+  background-image: url(../img/reports-2x.png);
+}
+
+.leaflet-control-info-button {
+  background-image: url(../img/info.png);
+}
+
+.leaflet-retina .leaflet-control-info-button {
+  background-image: url(../img/info-2x.png);
+}
+
+.leaflet-control-location-button {
+  background-image: url(../img/location-icon.png);
+}
+
+.leaflet-retina .leaflet-control-location-button {
+  background-image: url(../img/location-icon-2x.png);
+}
+
+.leaflet-touch .leaflet-control-reports-button,
+.leaflet-touch .leaflet-control-info-button,
+.leaflet-touch .leaflet-control-location-button {
+  width: 48px;
+  height: 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid rgba(0,0,0,.2);
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+/*Custom parameters for analytics*/
+#static_map{
+  height:500px;
+  width:100%;
+}
+
+.leaflet-container {
+  background:#FFF
+}
+
+/** Hide certain controls on touch enabled devices */
+.leaflet-touch .leaflet-control-zoom{
+  display: none;
+}
+
+/*Custom label text for repots modal checkbox*/
+label {
+  font-weight: 300;
+}
+
+/*Remove rounded corners of popups*/
+.leaflet-popup-content-wrapper,.leaflet-popup-content
+{
+  background-color:rgba(255, 255, 255, 1);
+
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+   border-radius: 0 !important;
+}
+/*Remove rounded corners of leaflet legend and buttons*/
+.leaflet-control, .btn, .modal-content {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+   border-radius: 0 !important;
+}
+
+.leaflet-bar a {
+  border-radius: 0 !important;
+}
+
+.div-icon-confirmed {
+  color: white;
+  text-shadow: -2px 0 #00b8e6, 0 2px #00b8e6, 2px 0 #00b8e6, 0 -2px #00b8e6;
+}
+
+.div-icon-confirmed-legend {
+  color: white;
+  text-shadow: -1px 0 #00b8e6, 0 1px #00b8e6, 1px 0 #00b8e6, 0 -1px #00b8e6;
+}
+
+.div-icon-verified{
+  color: #00CCFF;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.div-icon-verified-legend{
+  color: #00CCFF;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size:11px;
+}
+
+.div-icon-sensor{
+  color: #FFA500;
+  font-size:11px;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+
+.div-icon-sensor-legend{
+  color: #FFA500;
+  font-size:11px;
+}
+
+.icon-stack {
+    position: relative;
+}
+.icon-stack .glyphicon {
+    position: absolute;
+}
+
+.twitter-tweet-rendered{
+  width:60% !important;
+}
+
+p {
+    font-size: 24px;
+    font-weight:300;
+}
+
+/*
+ Set some global styles on the map and dialogs
+*/
+
+#includes {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  base-font-size: 16px;
+  color: #555;
+}
+
+.map {
+  font: 12px/1.5 "Helvetica Neue",Arial,Helvetica,sans-serif;
+  color: #555;
+}
+
+/* Titles */
+#includes h1,
+#includes h2,
+#includes h3,
+#includes h4,
+#includes h5,
+#includes h6,
+.map h1,
+.map h2,
+.map h3,
+.map h4,
+.map h5,
+.map h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #333;
+}
+
+#includes h1,
+.map h1 {
+	font-size: 40px;
+}
+
+#includes h3,
+.map h3 {
+	color: #696a6a;
+	font-weight: 400;
+}
+
+#includes h4,
+.map h4 {
+	color: #000;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+/* Links */
+#includes a,
+.map a {
+    color: #00AAEE;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+#includes a:hover,
+#includes a:focus,
+.map a:hover,
+.map a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+#includes a:before,
+#includes a:after,
+.map a:before,
+.map a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+/*
+ Overrides to set some leaflet styles back to leaflet defaults within the map styles
+*/
+.map .leaflet-bar a,
+.map .leaflet-bar a:hover {
+    color: #000;
+}
