@@ -35,7 +35,7 @@
  * @property {?number} logger.logDirectory Full path to directory to store log files in, if not set logs will be written to the application directory
  * @property {number} port Port to launch server on
  * @property {object} auth Configuration options for authentication
- * @property {object} auth.sessionSecret Session secret used by express-session 
+ * @property {object} auth.sessionSecret Session secret used by express-session
  */
 var config = {};
 
@@ -49,10 +49,10 @@ config.public_dir = __dirname+'/cognicity-rem-web/build/banjir';
 config.robots = __dirname+'/petajakarta-web/build/robots.txt';
 
 // Optional URL prefix - e.g. http://localhost/project-name/
-config.url_prefix = 'banjir';
+config.url_prefix = '';
 
 // Optional redirect path for root ['/'] requests
-config.root_redirect = 'banjir';
+config.root_redirect = '';
 
 // Dual language support
 config.languages = {};

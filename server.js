@@ -253,9 +253,9 @@ app.use(expressSession({
 	}),
 	secret: config.auth.sessionSecret, // Sign session ID cookie with this
 	resave: false, // pg session store allows us to set this to false as recommended by express-session
-	cookie: { 
+	cookie: {
 		maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
-	}, 
+	},
 	saveUninitialized: false // Don't save session until we have data to save
 }));
 
@@ -420,24 +420,24 @@ unprotectedRouter.get( '/'+config.url_prefix+'/data/api/v2/rem/flooded', functio
 		} else {
 			// Write a success response
 			var responseData;
-			
+
 			if (req.query.format === 'cap') {
 				// Write an ATOM CAP format response
 				var features = data[0].features || [];
 				var capData = cap.geoJsonToAtomCap(features);
-	
+
 				responseData = {};
 				responseData.code = 200;
 				responseData.headers = {"Content-type":"application/xml"};
 				responseData.body = capData;
-				
+
 				cacheTemporarily(req.originalUrl, responseData);
-				writeResponse(res, responseData);	
+				writeResponse(res, responseData);
 			} else {
 				// Standard GeoJSON or topojson response
 				responseData = prepareResponse(req, data[0]);
 				cacheTemporarily(req.originalUrl, responseData);
-				writeResponse(res, responseData);	
+				writeResponse(res, responseData);
 			}
 		}
 	});
@@ -550,7 +550,7 @@ app.use(function(err, req, res, next){
  */
 function prepareResponse(req, data){
 	var format = req.query.format;
-	
+
 	var responseData = {};
 
 	if (format === 'topojson' && data.features) {
