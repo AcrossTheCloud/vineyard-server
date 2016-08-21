@@ -16,7 +16,7 @@ CogniCity
 ### 1.0.3 - 21/01/2015
 * Improved JSDoc outputs
 * Added Istanbul code coverage
-* Revised parameter handling in server.js & CognicityServer.js
+* Revised parameter handling in server.js & VineyardServer.js
 
 ### 1.0.4 - 29/09/2015
 * Added robots.txt route in server.js & config.js

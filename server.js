@@ -37,8 +37,8 @@ var topojson = require('topojson');
 var morgan = require('morgan');
 // Winston logger module, used for logging
 var logger = require('winston');
-// CognicityServer module, application logic and database interaction is handled here
-var CognicityServer = require('./CognicityServer.js');
+// VineyardServer module, application logic and database interaction is handled here
+var VineyardServer = require('./VineyardServer.js');
 // Cap conversion module, transform GeoJson to Cap
 var Cap = require('./Cap.js');
 // Database module, abstraction layer over queries to database
@@ -213,8 +213,8 @@ passport.deserializeUser(function(username, cb) {
 // Server //
 ////////////
 
-// Create instance of CognicityServer
-var server = new CognicityServer(config, logger, database); // Variable needs to be lowercase or jsdoc output is not correctly linked
+// Create instance of VineyardServer
+var server = new VineyardServer(config, logger, database); // Variable needs to be lowercase or jsdoc output is not correctly linked
 
 // CAP format converted
 var cap = new Cap(logger);
@@ -272,7 +272,7 @@ protectedRouter.all('*', connectEnsureLogin.ensureLoggedIn('/login'), function(r
 });
 
 // Favicon
-unprotectedRouter.use('/'+config.url_prefix+'/img/petajakarta_icon_32x32.png', express.static(config.public_dir+'/img/petajakarta_icon_32x32.png'));
+//unprotectedRouter.use('/'+config.url_prefix+'/img/petajakarta_icon_32x32.png', express.static(config.public_dir+'/img/petajakarta_icon_32x32.png'));
 
 // Static file server
 protectedRouter.use('/'+config.url_prefix, express.static(config.public_dir));
@@ -287,23 +287,9 @@ app.all('/'+config.url_prefix+'/data/*', function(req, res, next){
 	next();
 });
 
-// Language detection based on client browser
-protectedRouter.get(['/', '/'+config.root_redirect], function(req, res){
-	if (req.acceptsLanguages(config.languages.locale) !== false){
-		res.redirect('/'+config.root_redirect+'/'+config.languages.locale);
-	}
-	else {
-		res.redirect('/'+config.root_redirect+'/'+config.languages.default);
-	}
-});
 
-// Depreciate data API v1
-protectedRouter.get('/'+config.url_prefix+'/data/api/v1*',function(req, res, next){
-	res.setHeader('Cache-Control','max-age=60');
-	res.redirect(301, '/'+config.url_prefix+'/data/api/v2'+req.params[0]);
-});
 
-protectedRouter.get( new RegExp('/'+config.url_prefix+'/data/api/v2/.*'), function(req, res, next){
+protectedRouter.get( new RegExp('/'+config.url_prefix+'/data/api/.*'), function(req, res, next){
 	// See if we've got a cache hit on the request URL
 	var cacheResponse = cache.get(req.originalUrl);
 	// Render the cached response now or let express find the next matching route
@@ -400,65 +386,6 @@ protectedRouter.put( '/'+config.url_prefix+'/data/api/v2/rem/flooded/:id', funct
 	}
 });
 
-// Unauthenticated route to get list of states
-unprotectedRouter.get( '/'+config.url_prefix+'/data/api/v2/rem/flooded', function(req, res, next){
-	var options = {
-		polygon_layer: config.pg.aggregate_levels.rw,
-		minimum_state_filter: 0
-	};
-
-	//Organise query parameter for minimum state
-	if (req.query.minimum_state){
-		options.minimum_state_filter = Number(req.query.minimum_state);
-	}
-
-	// Get data
-	server.getStates(options, function(err, data){
-		if (err) {
-			// TODO On error, return proper error code so client can handle the failed request
-			next(err);
-		} else {
-			// Write a success response
-			var responseData;
-
-			if (req.query.format === 'cap') {
-				// Write an ATOM CAP format response
-				var features = data[0].features || [];
-				var capData = cap.geoJsonToAtomCap(features);
-
-				responseData = {};
-				responseData.code = 200;
-				responseData.headers = {"Content-type":"application/xml"};
-				responseData.body = capData;
-
-				cacheTemporarily(req.originalUrl, responseData);
-				writeResponse(res, responseData);
-			} else {
-				// Standard GeoJSON or topojson response
-				responseData = prepareResponse(req, data[0]);
-				cacheTemporarily(req.originalUrl, responseData);
-				writeResponse(res, responseData);
-			}
-		}
-	});
-});
-
-// Authenticated route to get DIMS states
-protectedRouter.get( '/'+config.url_prefix+'/data/api/v2/rem/dims', function(req, res, next){
-	var options = {
-		polygon_layer: config.pg.aggregate_levels.rw
-	};
-	server.getDims(options, function(err, data){
-		if (err) {
-			next(err);
-		} else {
-			// Write a success response
-			var responseData = prepareResponse(req, data[0]);
-			cacheTemporarily(req.originalUrl, responseData);
-			writeResponse(res, responseData);
-		}
-	});
-});
 
 // Fetch user information
 protectedRouter.all('/currentUser', function(req, res, next) {

@@ -3,7 +3,7 @@
 /* jshint -W079 */ // Ignore this error for this import only, as we get a redefinition problem
 var test = require('unit.js');
 /* jshint +W079 */
-var CognicityServer = require('../CognicityServer.js');
+var VineyardServer = require('../VineyardServer.js');
 var Database = require('../Database.js');
 
 // Create server with empty objects
@@ -13,7 +13,7 @@ var database = new Database(
 	{},
 	{}
 );
-var server = new CognicityServer(
+var server = new VineyardServer(
 	{},
 	{},
 	database
