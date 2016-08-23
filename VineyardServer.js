@@ -42,9 +42,36 @@ VineyardServer.prototype = {
 	 */
 	database: null,
 
+	getSoilData: function(callback){
+		var self = this;
+
+
+		// SQL
+		var queryObject = {
+			text: "SELECT 'FeatureCollection' As type, " +
+			    "array_to_json(array_agg(f)) As features " +
+			  "FROM (SELECT 'Feature' As type, " +
+			    "ST_AsGeoJSON(lg.wkb_geometry)::json As geometry, " +
+			    "row_to_json( " +
+			      "(SELECT l FROM " +
+			        "(SELECT ogc_fid, " +
+			        "pit_location, " +
+			        "depth, " +
+			        "texture, " +
+			        "pedality) " +
+			      " As l) " +
+			    ") As properties " +
+			    "FROM soil_data AS lg " +
+			    "ORDER BY pit_location" +
+			" ) As f ;"
+
+		};
+		// Call data query
+		self.database.dataQuery(queryObject, callback);
+	},
 
 	/**
-	 * Get the GeoJSON village data including flooded state in the feature properties.
+	 * Get the GeoJSON sensor data including flooded state in the feature properties.
 	 * Call the callback function with error or response data.
 	 * @param {object} options Configuration options for the query
 	 * @param {string} options.polygon_layer Database table for layer of geo data

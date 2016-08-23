@@ -43,10 +43,10 @@ var config = {};
 config.instance = 'cognicity-rem-server';
 
 // Location of HTML files to serve
-config.public_dir = __dirname+'/cognicity-rem-web/build/banjir';
+config.public_dir = __dirname+'/web';
 
 // Location of robots.txt file to server at root level
-config.robots = __dirname+'/petajakarta-web/build/robots.txt';
+config.robots = __dirname+'/web/robots.txt';
 
 // Optional URL prefix - e.g. http://localhost/project-name/
 config.url_prefix = '';
@@ -71,10 +71,11 @@ config.redirectHTTP = true;
 config.pg = {};
 
 // Example postgres string for running on localhost
-// config.pg.conString = 'postgres://postgres@localhost/cognicity-rem';
+config.pg.conString = 'postgres://matthew@localhost/vineyard';
 
 /* Sample connection string using environment variables from AWS Elastic Beanstalk. */
-config.pg.conString = 'postgres://' + process.env.RDS_USERNAME + ':' + process.env.RDS_PASSWORD +'@' + process.env.RDS_HOSTNAME + ':' + process.env.RDS_PORT + '/' + process.env.DB_NAME;
+
+// config.pg.conString = 'postgres://' + process.env.RDS_USERNAME + ':' + process.env.RDS_PASSWORD +'@' + process.env.RDS_HOSTNAME + ':' + process.env.RDS_PORT + '/' + process.env.DB_NAME;
 /*	On other platforms you would replace those variables as necessary
 */
 
@@ -109,7 +110,7 @@ config.logger = {};
 config.logger.level = "debug"; // What level to log at; info, verbose or debug are most useful. Levels are (npm defaults): silly, debug, verbose, info, warn, error.
 config.logger.maxFileSize = 1024 * 1024 * 100; // Max file size in bytes of each log file; default 100MB
 config.logger.maxFiles = 10; // Max number of log files kept
-config.logger.logDirectory = '/var/log/nodejs'; // Set this to a full path to a directory - if not set logs will be written to the application directory.
+config.logger.logDirectory = ''; // Set this to a full path to a directory - if not set logs will be written to the application directory.
 
 // Server port
 config.port = process.env.PORT || 8082;

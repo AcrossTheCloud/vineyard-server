@@ -7,3 +7,5 @@ node_modules/
 .project
 docs/
 coverage/
+schema/actual_soil_data.sql
+schema/actual_create-users.sql
