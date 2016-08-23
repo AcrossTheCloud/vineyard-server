@@ -1,16 +1,7 @@
-CogniCity
+Vineyard Mapping Server
 =========
-**Open Source GeoSocial Intelligence Framework**
-
-#### cognicity-rem-server: NodeJS server for CogniCity REM data and web files.
-
-[![Build Status](https://smart-analytics.eis.uow.edu.au/jenkins/buildStatus/icon?job=cognicity-rem-server-test)](https://smart-analytics.eis.uow.edu.au/jenkins/job/cognicity-rem-server-test/)
-
-DOI for current stable release [v2.0.0](https://github.com/smart-facility/cognicity-rem-server/releases/tag/v2.0.0):
-[![DOI](https://zenodo.org/badge/19201/smart-facility/cognicity-rem-server.svg)](https://zenodo.org/badge/latestdoi/19201/smart-facility/cognicity-rem-server)
-
 ### About
-Cognicity-rem-server is the NodeJS server module for the CogniCity framework REM interface, responsible for serving data and web content. For detailed framework documentation see [http://cognicity.info](http://cognicity.info)
+vineyard-server is the NodeJS server and web client files for a vineyard mapping web application.
 
 ### Dependencies
 * [NodeJS](http://nodejs.org) version 4.2.1 or later
@@ -23,13 +14,13 @@ Please refer to [package.json](package.json) for details of dependencies.
 Please refer to [package.json](package.json) for details of dependencies.
 
 ### Installation
-Download the source code for cognicity-rem-server from github: [https://github.com/smart-facility/cognicity-rem-server](https://github.com/smart-facility/cognicity-rem-server) or view the CogniCity installation documentation at [http://cognicity.info](http://cognicity.info).
-To check it out using git, run `git clone --recursive git@github.com:smart-facility/cognicity-rem-server`, which will also check out the default web site submodule [https://github.com/smart-facility/https://github.com/smart-facility/cognicity-rem-web](https://github.com/smart-facility/https://github.com/smart-facility/cognicity-rem-web), which if you fork you can change to your own set of pages (refer to config.public_dir and config.url_prefix in the config.js file). If you have already cloned the repository, and want to check out the submodule, then run
+Download the source code for vineyard-server from github: [https://github.com/AcrossTheCloud/vineyard-server](https://github.com/AcrossTheCloud/vineyard-server) or view the CogniCity installation documentation at [http://cognicity.info](http://cognicity.info).
+To check it out using git, run `git clone --recursive git@github.com:AcrossTheCloud/vineyard-server`, which will also check out the default web site submodule [https://github.com/AcrossTheCloud/https://github.com/AcrossTheCloud/cognicity-rem-web](https://github.com/AcrossTheCloud/https://github.com/AcrossTheCloud/cognicity-rem-web), which if you fork you can change to your own set of pages (refer to config.public_dir and config.url_prefix in the config.js file). If you have already cloned the repository, and want to check out the submodule, then run
 ```shell
 git submodule init
 git submodule update
 ```
-To update the submodule, first `cd cognicity-rem-web` then `git pull origin master`, then `cd ..` to move back to the main cognicity-rem-server directory and then `git commit` and `git push` along with any other changes.
+To update the submodule, first `cd cognicity-rem-web` then `git pull origin master`, then `cd ..` to move back to the main vineyard-server directory and then `git commit` and `git push` along with any other changes.
 
 #### Platform-specific notes ####
 To build on OS X we recommend using [homebrew](http://brew.sh) to install node, npm, and required node modules as follows:
@@ -55,8 +46,8 @@ You can then run `grunt` if you need to rebuild the build products following cha
 Server configuration parameters are stored in a configuration file which is parsed by server.js. See config.js for an example configuration. It is possible to run multiple server instances using different configuration files so long as a unique port is assigned to each instance.
 Some that you probably want to change:
 * config.pg.conString - the database connection string that can include username and password as well as the hostname and database name. If you're deploying to [AWS Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html) you will need to configure a property with name DB_NAME and value set to the database name, under Configuration -> Software configuration.
-* config.compression - If true, enable Express compression middleware to gzip responses. If deploying standalone then you probably want to set this to true. If deploying behind a reverse proxy+cache like [nginx](http://nginx.org) then you will want to leave this config option set to false and enable compressing using the caching server. For Elastic Beanstalk using nginx this is configured automatically using the Elastic Beanstalk [config file](https://github.com/smart-facility/cognicity-rem-server/blob/master/.ebextensions/nginx.config) (note if deploying standalone then this file actually contains only a fragment of an nginx config plus the Elastic Beanstalk headers).
-* config.logger.logDirectory - the location of the log file for the server. The default is the current working directory, and the default location + name are set up in the [cloud-log-init.config](https://github.com/smart-facility/cognicity-rem-server/blob/master/.ebextensions/cloud-log-init.config) file for easy export of the log file in Elastic Beanstalk.
+* config.compression - If true, enable Express compression middleware to gzip responses. If deploying standalone then you probably want to set this to true. If deploying behind a reverse proxy+cache like [nginx](http://nginx.org) then you will want to leave this config option set to false and enable compressing using the caching server. For Elastic Beanstalk using nginx this is configured automatically using the Elastic Beanstalk [config file](https://github.com/AcrossTheCloud/vineyard-server/blob/master/.ebextensions/nginx.config) (note if deploying standalone then this file actually contains only a fragment of an nginx config plus the Elastic Beanstalk headers).
+* config.logger.logDirectory - the location of the log file for the server. The default is the current working directory, and the default location + name are set up in the [cloud-log-init.config](https://github.com/AcrossTheCloud/vineyard-server/blob/master/.ebextensions/cloud-log-init.config) file for easy export of the log file in Elastic Beanstalk.
 
 #### API
 * aggregates.archive.level - The key of the aggregate level ('config.pg.aggregate_levels') to use for archive aggregate response data
@@ -68,7 +59,7 @@ Some that you probably want to change:
 * aggregate_levels - Database tables, keys are the label and values are the table name
 * infrastructure_tbls - Database tables, keys are the label and values are the table name
 
-Cognicity-rem-server requires a database that conforms to the [Cognicity framework schema](https://github.com/smart-facility/cognicity-schema).
+vineyard-server requires a database that conforms to the [Cognicity framework schema](https://github.com/AcrossTheCloud/cognicity-schema).
 
 You need to setup the session storage schema - run a command like
 ```shell
@@ -104,7 +95,7 @@ Requests are cached either temporarily (with a timeout set by the `config.cache_
 The server is launched by node.js directly. Note that you must set the SESSION_SECRET environment variable. In production, software on the server should manage launching, health checking and restarting of the process.
 
 ```shell
-$ cd cognicity-rem-server/
+$ cd vineyard-server/
 $ SESSION_SECRET=my_secret node server.js config.js
 ```
 
