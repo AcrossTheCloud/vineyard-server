@@ -40,7 +40,7 @@
 var config = {};
 
 // Instance name - default name for this configuration (will be server process name)
-config.instance = 'cognicity-rem-server';
+config.instance = 'vineyard-server';
 
 // Location of HTML files to serve
 config.public_dir = __dirname+'/web';
@@ -71,7 +71,7 @@ config.redirectHTTP = true;
 config.pg = {};
 
 // Example postgres string for running on localhost
-config.pg.conString = 'postgres://matthew@localhost/vineyard';
+config.pg.conString = 'postgres://postgres@localhost/vineyard';
 
 /* Sample connection string using environment variables from AWS Elastic Beanstalk. */
 
@@ -88,22 +88,7 @@ config.pg.conString = 'postgres://' + pgdetails.credentials.username + ':' + pgd
 // Database reconnection settings
 config.pg.reconnectionDelay = 1000 * 60 * 3; // Delay before attempting a reconnection in ms
 config.pg.reconnectionAttempts = 5; // Number of times to attempt reconnection before notifying admin and exiting
-// Database tables
-config.pg.tbl_reports = 'all_reports'; // Change to use multiple data sources
-config.pg.tbl_reports_unconfirmed = 'tweet_reports_unconfirmed';
 
-// Optional support for report aggregation
-config.pg.aggregate_levels = {
-	'city':'jkt_city_boundary',
-	'subdistrict':'jkt_subdistrict_boundary',
-	'village':'jkt_village_boundary',
-	'rw':'jkt_rw_boundary'
-};
-config.pg.infrastructure_tbls = {
-	'waterways':'waterways',
-	'pumps':'pumps',
-	'floodgates':'floodgates'
-};
 
 // Logging configuration
 config.logger = {};
