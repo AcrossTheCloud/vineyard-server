@@ -290,7 +290,7 @@ app.all('/'+config.url_prefix+'/data/*', function(req, res, next){
 
 // Data route for soil data
 protectedRouter.get('/data/api/soil', function(req, res, next){
-	console.log('soil api called');
+
 	server.getSoilData(function(err, data){
 		if (err) {
 			next(err);
