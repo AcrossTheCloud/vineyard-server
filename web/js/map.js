@@ -18,18 +18,14 @@ function getColour(pedality) {
 
 function depthToRadius(depth) {
 	switch (true) {
-		case (depth < 25):
-			return 2;
 		case depth <= 50:
-			return 3;
-		case depth <= 75:
-			return 4;
-		case depth <= 100:
 			return 5;
-		case depth <= 125:
+		case depth <= 100:
 			return 6;
-		default:
+		case depth <= 150:
 			return 7;
+		default:
+			return 8;
 	}
 }
 
