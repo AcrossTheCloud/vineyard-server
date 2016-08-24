@@ -1,6 +1,6 @@
 [{
   "script"  : "server.js",
   "name"    : "vineyard-server",
-  "watch"   : true,
+  "watch"   : false,
   "ignore_watch" : ["[\\/\\\\]\\./", "node_modules", "git-hooks", "test", "twitter-reply-test", "twitter-send-test", "^.*\.log$"]
 }]
