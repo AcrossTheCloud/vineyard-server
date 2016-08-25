@@ -58,7 +58,7 @@ function onEachFeature(feature, layer) {
 				popupContent += "Medium Clay";
 				break;
 			case "NIL":
-				popupContent += "No soil data";
+				popupContent += "No soil type data";
 		}
 		popupContent += ", Depth: " + String(feature.properties.depth) + "cm";
 	}
