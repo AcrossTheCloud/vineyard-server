@@ -40,10 +40,13 @@ function onEachFeature(feature, layer) {
 				popupContent += "Sandy Loam";
 				break;
 			case "SC":
-					popupContent += "Sandy Clay";
-					break;
+				popupContent += "Sandy Clay";
+				break;
 			case "LSCL":
 				popupContent += "Light Sandy Clay Loam";
+				break;
+			case "LS":
+				popupContent += "Light Sandy";
 				break;
 			case "CL":
 				popupContent += "Clay Loam";
