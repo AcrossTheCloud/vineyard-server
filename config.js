@@ -72,7 +72,7 @@ config.pg = {};
 
 // Example postgres string for running on localhost
 config.pg.conString = 'postgres://' + process.env.PGUSER + ':' + process.env.PGPASSWORD + '@'
-  + process.env.PGHOST + ':' + process.env.PGPORT + '/' + process.env.PGDATABASE + '?sslmode=require';
+  + process.env.PGHOST + ':' + process.env.PGPORT + '/' + process.env.PGDATABASE + '?ssl=true';
 
 /* Sample connection string using environment variables from AWS Elastic Beanstalk. */
 
